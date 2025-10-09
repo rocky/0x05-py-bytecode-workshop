@@ -21,6 +21,10 @@
 - [7.3 Magic number identification locations](#73-magic-number-identification-locations)
 - [7.4 Python Identification Exercises](#74-python-identification-exercises)
 - [10.1 Python Interpreter vs. C Static Compile](#101-python-interpreter-vs-c-static-compile)
+- [13.2 Tracing Python Bytecode](#132-tracing-python-bytecode)
+- [14.3 trepan-xpy on Python Bytecode](#143-trepan-xpy-on-python-bytecode)
+- [15.1 trepan3k: a debugger that can debug without source](#151-trepan3k-a-debugger-that-can-debug-without-source)
+- [15.2 trepan3k: a debugger that can debug without source](#152-trepan3k-a-debugger-that-can-debug-without-source)
 
 <!-- markdown-toc end -->
 These are notes and links from the slides I will present.
@@ -258,8 +262,46 @@ define dso_local i32 @main(i32 noundef %0, ptr noundef %1) #0 {
 xpython -v decompilation-examples/example6.pyc
 ```
 
-# 14.3 xpython on Python Bytecode
+# 14.3 trepan-xpy on Python Bytecode
 
 ```
 trepan-xpy xpython/stack-example.py
 ```
+
+Commands used:
+
+* `list`: list source code
+* `eval`: evaluate an expression (also `print`)
+* `info block`: show block stack
+* `info stack`: show evaluation stack
+* `step`: step a bytecode instruction
+* `backtrace`: show callframe stack
+* `continue`: continue execution.
+
+
+# 15.1 trepan3k: a debugger that can debug without source
+
+```
+pyenv local 3.8   # Set up to use a CPython 3.8 interpreter
+trepan3k bytecode-versions/five-c.pyc
+```
+
+Commands used:
+
+* `deparse`: deparse source text around stopped instruction offset
+* `print`: evaluate an expression (also `eval`)
+* `step`: step a bytecode instruction
+* `backtrace`: show callframe stack
+* `continue`: continue execution.
+
+
+# 15.2 trepan3k: a debugger that can debug without source
+
+```
+pyenv local 3.13  # Set up to run a CPython 3.13 interpreter
+trepan3k bytecode-versions/five-f.pyc
+```
+
+Commands used in addition to those already mentioned:
+
+* `set autopc`: show disassembly around stopped instruction offset
