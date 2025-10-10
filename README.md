@@ -121,6 +121,7 @@ $ Invoke-WebRequest -UseBasicParsing -Uri "https://raw.githubusercontent.com/pye
 
 # 6.4 Software we will be using today
 
+
 * [xdis](https://pypi.org/project/xdis/): 6.1.7
 * [uncompyle6](https://pypi.org/project/uncompyle6/): 3.9.4
 * [x-python](https://pypi.org/project/x-python/): 3.9.4
@@ -128,6 +129,12 @@ $ Invoke-WebRequest -UseBasicParsing -Uri "https://raw.githubusercontent.com/pye
 * [trepan3k](https://pypi.org/project/trepan3k/)
 * [xasm](https://pypi.org/project/xasm/) 1.2.1
 * control-flow &mdash; 1.0.0.alpha0
+
+To install these:
+
+```shell-session
+$ pip install -r requirements-basic.txt
+```
 
 # 6.5 Optional programs
 
