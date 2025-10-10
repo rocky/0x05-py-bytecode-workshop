@@ -121,22 +121,13 @@ $ Invoke-WebRequest -UseBasicParsing -Uri "https://raw.githubusercontent.com/pye
 
 # 6.4 Software we will be using today
 
-* [xdis](https://pypi.org/project/xdis/)
-* [uncompyle6](https://pypi.org/project/uncompyle6/)
-* [x-python](https://pypi.org/project/x-python/)
-* [trepan3k](https://pypi.org/project/trepan3k/) (uses xdis and uncompyle6)
-* [trepanxpy](https://pypi.org/project/trepanxpy/) (optional? uses trepan3k )
-* [xasm](https://pypi.org/project/xasm/)
-
-## Versions of software
-
-* xdis &mdash; 6.1.7
-* uncompyle6 &mdash; 3.9.4
-* decompyle3 &mdash; 3.9.4
+* [xdis](https://pypi.org/project/xdis/): 6.1.7
+* [uncompyle6](https://pypi.org/project/uncompyle6/): 3.9.4
+* [x-python](https://pypi.org/project/x-python/): 3.9.4
+* [trepanxpy](https://pypi.org/project/trepanxpy/) 1.1.2
+* [trepan3k](https://pypi.org/project/trepan3k/)
+* [xasm](https://pypi.org/project/xasm/) 1.2.1
 * control-flow &mdash; 1.0.0.alpha0
-* xasm &mdash; 1.2.1
-* trepan-xpy &mdash; 1.1.2
-* x-python &mdash; 1.5.3
 
 # 6.5 Optional programs
 
@@ -264,13 +255,13 @@ define dso_local i32 @main(i32 noundef %0, ptr noundef %1) #0 {
 # 13.2 Tracing Python Bytecode
 
 ```shell-session
-$ xpython -v decompilation-examples/example6.pyc
+$ xpython -v 12-decompilation-examples/example6.pyc
 ```
 
 # 14.3 trepan-xpy on Python Bytecode
 
 ```shell-session
-$ trepan-xpy xpython/stack-example.py
+$ trepan-xpy 13-xpython/stack-example.py
 ```
 
 Commands used:
@@ -288,7 +279,7 @@ Commands used:
 
 ```
 pyenv local 3.8   # Set up to use a CPython 3.8 interpreter
-trepan3k bytecode-versions/five-c.pyc
+trepan3k 15-bytecode-versions/five-c.pyc
 ```
 
 Commands used:
