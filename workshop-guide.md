@@ -25,6 +25,7 @@
 - [14.3 trepan-xpy on Python Bytecode](#143-trepan-xpy-on-python-bytecode)
 - [15.1 trepan3k: a debugger that can debug without source](#151-trepan3k-a-debugger-that-can-debug-without-source)
 - [15.2 trepan3k: a debugger that can debug without source](#152-trepan3k-a-debugger-that-can-debug-without-source)
+- [16.1 Modifiying Python Bytecode: pyc-xasm](#161-modifiying-python-bytecode-pyc-xasm)
 
 <!-- markdown-toc end -->
 These are notes and links from the slides I will present.
@@ -127,11 +128,20 @@ Invoke-WebRequest -UseBasicParsing -Uri "https://raw.githubusercontent.com/pyenv
 
 ## Versions of software
 
-* xdis 6.1.7
-* uncompyle6 3.9.4
-* decompyle3 3.9.4
-* control-flow 1.0.0.alpha0
-* xasm 1.2.1
+xdis
+:  6.1.7
+uncompyle6
+: 3.9.4
+decompyle3
+: 3.9.4
+control-flow
+: 1.0.0.alpha0
+xasm
+: 1.2.1
+trepan-xpy
+: 1.1.2
+x-python
+: 1.5.3
 
 # 6.5 Optional programs
 
@@ -305,3 +315,34 @@ trepan3k bytecode-versions/five-f.pyc
 Commands used in addition to those already mentioned:
 
 * `set autopc`: show disassembly around stopped instruction offset
+
+# 16.1 Modifiying Python Bytecode: pyc-xasm
+
+The format `-F xasm` on `pydisasm` gives Bytecode assembly in text format.
+
+```
+pydisasm -F xasm assembling/example1.cpython-310.pyc > assembling/example1.xasm
+```
+
+You can then modify this and then create a Python bycode file using `pyx-xasm` from the `xasm` package.
+
+We'll patch out a comparison test on getting the right "password", by
+changing some opcodes to NOP (no operation) instructions.
+
+```
+cat assembling/example1-xasm.diff
+patch -p1 assembling/example1-xasm.diff
+```
+
+Now assembly the using `pyc-xasm`:
+
+```
+pyc-xasm assembling/example1.xasm
+```
+
+And using a CPython 3.10 interpreter, or x-python: run the program:
+
+```
+python assembling/example1.pyc
+x-python assembling/example1.pyc
+```

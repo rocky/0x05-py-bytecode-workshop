@@ -1,0 +1,13 @@
+--- assembling/example1.xasm	2025-10-09 19:32:58.201949631 -0400
++++ assembling/example1-modified.xasm	2025-10-09 19:34:45.654756759 -0400
+@@ -98,5 +98,5 @@
+             LOAD_NAME            3 (x)
+             CALL_FUNCTION        1 (1 positional argument)
+             LOAD_CONST           4 (1997)
+-            COMPARE_OP           5 (>=)
+-            POP_JUMP_IF_FALSE    L78 (to 78)
++            NOP
++            NOP
+
+  18:
+             LOAD_NAME            5 (print)
