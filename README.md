@@ -47,14 +47,14 @@ High-level bytecode is attractive for malware writers, because:
 * Please join slack channel #0x05-py-bytecoe workshop.
 * Once you have joined send the output from:
 
-```
-python -V
+```shell-session
+$ python -V
 ```
 
 Also send:
 
-```
-	python -c 'import sys; print(sys.version)'
+```shell-session
+$ python -c 'import sys; print(sys.version)'
 ```
 
 # 6.2 Python Installation via OS Package Install
@@ -80,7 +80,7 @@ On CentOS, Fedora, or RedHat:
 ```shell-session
 $ sudo dnf install python3 # or try yum
 ```
-￼
+
 ## MacOS
 
 ```shell-session
@@ -130,20 +130,13 @@ $ Invoke-WebRequest -UseBasicParsing -Uri "https://raw.githubusercontent.com/pye
 
 ## Versions of software
 
-xdis
-:  6.1.7
-uncompyle6
-: 3.9.4
-decompyle3
-: 3.9.4
-control-flow
-: 1.0.0.alpha0
-xasm
-: 1.2.1
-trepan-xpy
-: 1.1.2
-x-python
-: 1.5.3
+* xdis &mdash; 6.1.7
+* uncompyle6 &mdash; 3.9.4
+* decompyle3 &mdash; 3.9.4
+* control-flow &mdash; 1.0.0.alpha0
+* xasm &mdash; 1.2.1
+* trepan-xpy &mdash; 1.1.2
+* x-python &mdash; 1.5.3
 
 # 6.5 Optional programs
 
@@ -270,14 +263,14 @@ define dso_local i32 @main(i32 noundef %0, ptr noundef %1) #0 {
 
 # 13.2 Tracing Python Bytecode
 
-```
-xpython -v decompilation-examples/example6.pyc
+```shell-session
+$ xpython -v decompilation-examples/example6.pyc
 ```
 
 # 14.3 trepan-xpy on Python Bytecode
 
-```
-trepan-xpy xpython/stack-example.py
+```shell-session
+$ trepan-xpy xpython/stack-example.py
 ```
 
 Commands used:
@@ -309,9 +302,9 @@ Commands used:
 
 # 15.2 trepan3k: a debugger that can debug without source
 
-```
-pyenv local 3.13  # Set up to run a CPython 3.13 interpreter
-trepan3k bytecode-versions/five-f.pyc
+```shell-session
+$ pyenv local 3.13  # Set up to run a CPython 3.13 interpreter
+$ trepan3k bytecode-versions/five-f.pyc
 ```
 
 Commands used in addition to those already mentioned:
