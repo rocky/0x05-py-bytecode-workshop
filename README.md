@@ -273,7 +273,7 @@ $ xpython -v 12-decompilation-examples/example6.pyc
 $ trepan-xpy 14-xpython/stack-example.py
 ```
 
-![trepan-xpy demo run on stack-example](14-xpython/stack-example.gif)
+![trepan-xpy demo run on stack-example](14-trepan-xpy/stack-example.gif)
 
 Commands used:
 
