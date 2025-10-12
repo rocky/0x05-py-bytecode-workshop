@@ -1,3 +1,6 @@
+Information to accomany Slide 7
+-------------------------------
+
 Identify the Python version and bytecode number (in decimal, not hex) for as many of the bytecode files in this directory you can do.
 
 ``pydisasm -F header *name*`` can help here. Or

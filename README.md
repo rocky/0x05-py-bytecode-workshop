@@ -267,11 +267,13 @@ $ xpython -v 12-decompilation-examples/example6.pyc
 
 ![x-python trace of example6.pyc](13-xpython/example6.gif)
 
-# 14.3 trepan-xpy on Python Bytecode
+# 14.3 trepan-xpy on Python Bytecode (via source)
 
 ```shell-session
-$ trepan-xpy 13-xpython/stack-example.py
+$ trepan-xpy 14-xpython/stack-example.py
 ```
+
+![trepan-xpy demo run on stack-example](14-xpython/stack-example.gif)
 
 Commands used:
 
@@ -284,12 +286,15 @@ Commands used:
 * `continue`: continue execution.
 
 
-# 15.1 trepan3k: a debugger that can debug without source
+# 15.1 trepan3k: a debugger that can debug without source (and decompile)
 
 ```
 pyenv local 3.8   # Set up to use a CPython 3.8 interpreter
 trepan3k 15-bytecode-versions/five-c.pyc
 ```
+
+![trepan-3k demo with embedded decompilation](15-trepan3k/trepan3k-example1.gif)
+
 
 Commands used:
 
@@ -300,12 +305,15 @@ Commands used:
 * `continue`: continue execution.
 
 
-# 15.2 trepan3k: a debugger that can debug without source
+# 15.2 trepan3k: a debugger that can debug without source, disassembly only
 
 ```shell-session
 $ pyenv local 3.13  # Set up to run a CPython 3.13 interpreter
 $ trepan3k bytecode-versions/five-f.pyc
 ```
+
+![trepan-3k demo with disassembly only](15-trepan3k/trepan3k-example2.gif)
+
 
 Commands used in addition to those already mentioned:
 
