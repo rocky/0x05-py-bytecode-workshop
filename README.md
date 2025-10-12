@@ -265,6 +265,8 @@ define dso_local i32 @main(i32 noundef %0, ptr noundef %1) #0 {
 $ xpython -v 12-decompilation-examples/example6.pyc
 ```
 
+![x-python trace of example6.pyc](13-xpython/example6.gif)
+
 # 14.3 trepan-xpy on Python Bytecode
 
 ```shell-session
