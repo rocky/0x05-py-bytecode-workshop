@@ -363,6 +363,8 @@ $ pyc-xasm assembling/example1.xasm
 And using a CPython 3.10 interpreter, or x-python: run the program:
 
 ```shell-session
-$ python assembling/example1.pyc
-$ x-python assembling/example1.pyc
+$ python 16-assembling/example1.pyc
+$ x-python 16-assembling/example1.pyc
 ```
+
+![trepan-3k demo with disassembly only](16-assembling/assemble.gif)
