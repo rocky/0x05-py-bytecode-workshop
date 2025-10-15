@@ -1,0 +1,13 @@
+--- example1.xasm	2025-10-15 12:50:47.521633593 -0400
++++ example1-modified.xasm	2025-10-15 12:52:00.164673647 -0400
+@@ -97,8 +97,8 @@
+             LOAD_NAME            3 (x)
+             CALL_FUNCTION        1 (1 positional argument)
+             LOAD_CONST           4 (1997)
+-            COMPARE_OP           5 (>=)
+-            POP_JUMP_IF_FALSE    L78 (to 78)
++            NOP
++            NOP
+ 
+  20:
+             LOAD_NAME            5 (print)
