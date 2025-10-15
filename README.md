@@ -30,9 +30,16 @@ here.
 - [14.3 trepan-xpy on Python Bytecode](#143-trepan-xpy-on-python-bytecode)
 - [15.1 trepan3k: a debugger that can debug without source](#151-trepan3k-a-debugger-that-can-debug-without-source)
 - [15.2 trepan3k: a debugger that can debug without source](#152-trepan3k-a-debugger-that-can-debug-without-source)
-- [16.1 Modifiying Python Bytecode: pyc-xasm](#161-modifiying-python-bytecode-pyc-xasm)
+- [16.1 Modifying Python Bytecode: pyc-xasm](#161-modifiying-python-bytecode-pyc-xasm)
 
 <!-- markdown-toc end -->
+
+# Slide 1.1 Workshop on Python Bytecode
+
+Please join slack channel: #0x05-py-bytecode-workshop.
+
+Make sure you've filled out the [BSidesNYC 2025 Surve](https://forms.gle/wLXvKyn6VmyCLGX98).
+
 
 # Slide 3.2 Why Study Python Bytecode?
 
@@ -44,7 +51,7 @@ High-level bytecode is attractive for malware writers, because:
 
 # 6.1 Getting Set up for the workshop.
 
-* Please join slack channel #0x05-py-bytecoe workshop.
+* Please join slack channel #0x05-py-bytecode workshop.
 * Once you have joined send the output from:
 
 ```shell-session
@@ -99,7 +106,7 @@ $ choco install python --version=3.12 --params '"/InstallDir:C:\Python313"'
 
 ```shell-session
 $ mkdir
-$ cd BSides-2025-workshop
+$ cd 0x05-py-bytecode-workshop
 $ python -m venv
 $ venv/bin/activate venv
 ```
@@ -107,7 +114,7 @@ $ venv/bin/activate venv
 ## pyenv
 
 ```shell-session
-$ cd BSides-2025-workshop
+$ cd 0x05-py-bytecode-workshop
 $ curl https://pyenv.run | bash
 $ pyenv install 3.13
 $ # Follow instructions at: https://github.com/pyenv/pyenv#b-set-up-your-shell-environment-for-pyenv
@@ -128,18 +135,25 @@ $ Invoke-WebRequest -UseBasicParsing -Uri "https://raw.githubusercontent.com/pye
 * [trepanxpy](https://pypi.org/project/trepanxpy/) 1.1.2
 * [trepan3k](https://pypi.org/project/trepan3k/)
 * [xasm](https://pypi.org/project/xasm/) 1.2.1
-* control-flow &mdash; 1.0.0.alpha0
+* [python-control-flow](https://pypi.org/project/python-control-flow) 1.0.0.alpha0
 
 To install these:
 
 ```shell-session
+$ cd 0x05-py-bytecode-workshop
 $ pip install -r requirements-basic.txt
+$ pip show xdis uncompyle6 xasm trepan3k x-python trepanxpy
 ```
 
 # 6.5 Optional programs
 
-* [pycdc](https://github/zrax/pycdc/) (optional); can be installed via snap
-* [pylingual](https://github.com/syssec-utd/pylingual) # can use from website http://pylingual.io
+* [pycdc](https://github/zrax/pycdc/) (optional). This can be installed via snap.
+* [pylingual](https://github.com/syssec-utd/pylingual) This can be used from website http://pylingual.io .
+
+`pycdc` is a C++ program, so you will need to have C++ and CMake installed.
+
+`pylingual` uses PyTorch. It helps to have CUDA installed. Google for how to get the right version of CUDA installed.
+
 
 # 7.1 Python Bytecode
 
@@ -299,7 +313,7 @@ as expected.
 There is another stack in this version of Python called the
 "block stack".  It is currently empty which is seen using *info block*. When I step into the `try` block, we see that a new block entry has been
 created. And when I step another instruction, I get an `IndexError`exception raised and we see that there
-are lot of evaluation stack entires created. Although there is only one block, the block type has changed.
+are lot of evaluation stack entries created. Although there is only one block, the block type has changed.
 
 
 # 15.1 trepan3k: a debugger that can debug without source (and decompile)
@@ -336,7 +350,7 @@ Commands used in addition to those already mentioned:
 
 * `set autopc`: show disassembly around stopped instruction offset
 
-# 16.1 Modifiying Python Bytecode: pyc-xasm
+# 16.1 Modifying Python Bytecode: pyc-xasm
 
 The format `-F xasm` on `pydisasm` gives Bytecode assembly in text format.
 
