@@ -1,6 +1,7 @@
 # Software we'll be using today
-xdis>=6.1.6
+xdis>=6.1.7
 trepan3k>=1.5.0
-trepan-xpy>=1.5.0
-python-xasm
+trepanxpy>=1.1.2
+x-python>=1.5.3
+xasm>=1.2.1
 uncompyle6>=3.9.3

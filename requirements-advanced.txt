@@ -1,0 +1,4 @@
+# Optional, more-advanced software
+python-control-flow >= 1.0
+decompyle3 >= 3.9.3
+# decompile-cfg =~ 1.0.0a1
