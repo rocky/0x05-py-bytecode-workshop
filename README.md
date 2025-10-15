@@ -285,6 +285,22 @@ Commands used:
 * `backtrace`: show callframe stack
 * `continue`: continue execution.
 
+In this example, The *--style colorful* is just setting a color scheme for output. I have the source code available for inspection. Initially, we see disassembly for the bytecode we will be stepping through starting at offset 0.
+
+When I run the *list* command, we see source code which is found using the embedded file name in the bytecode. Here, I have the source code around.
+
+Next, I issue a `step` command to get to the next line, line 4. At this point, we are going to load the constant integer value 5, so that we can store it in variable *x*. At this point I note that the evaluation stack is empty. And I can see that using `info stack`.
+
+Currently, in Python up to Python 3.13, at statement and line boundaries the evaluation stack is empty. But when I step a bytecode instruction using `stepi`, now the evaluation stack has that 5 integer value that was loaded at offset 0. And now th evaluation stack shows that.
+
+But notice that variable *x* is still undefined. However when I `stepi` into the `STORE` instruction, *x* now has the value 5,
+as expected.
+
+There is another stack in this version of Python called the
+"block stack".  It is currently empty which is seen using *info block*. When I step into the `try` block, we see that a new block entry has been
+created. And when I step another instruction, I get an `IndexError`exception raised and we see that there
+are lot of evaluation stack entires created. Although there is only one block, the block type has changed.
+
 
 # 15.1 trepan3k: a debugger that can debug without source (and decompile)
 
@@ -298,6 +314,7 @@ trepan3k 15-bytecode-versions/five-c.pyc
 
 Commands used:
 
+* `set autopc`: deparse source text around stopped instruction offset
 * `deparse`: deparse source text around stopped instruction offset
 * `print`: evaluate an expression (also `eval`)
 * `step`: step a bytecode instruction
