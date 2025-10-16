@@ -52,7 +52,7 @@ High-level bytecode is attractive for malware writers, because:
 # 6.1 Getting Set up for the workshop.
 
 * Please join slack channel #0x05-py-bytecode workshop.
-* Once you have joined send the output from:
+* Once you have joined, send the output from:
 
 ```shell-session
 $ python -V
@@ -68,7 +68,7 @@ $ python -c 'import sys; print(sys.version)'
 
 ## GNU/Linux
 
-On GNU/Linux one way to install is via use [snap](https://snapcraft.io/python3-alt)
+On GNU/Linux, one way to install is via use [snap](https://snapcraft.io/python3-alt)
 
 On Ubuntu:
 
@@ -76,13 +76,13 @@ On Ubuntu:
 $ sudo apt install python3
 ```
 
-On CentOS, Fedora, or RedHat:
+On CentOS, Fedora, or Red Hat:
 
 ```shell-session
 $ sudo dnf install python3 # or try yum
 ```
 
-On CentOS, Fedora, or RedHat:
+On CentOS, Fedora, or Red Hat:
 
 ```shell-session
 $ sudo dnf install python3 # or try yum
@@ -192,7 +192,7 @@ import py_compile; py_compile("five,py", "five.cpython-313.pyc", "exec")
 
 # 7.3 Magic number identification locations
 
-You can find a correspondence between magic number and its Python version here:
+You can find a correspondence between the magic number and its Python version here:
 
 * https://github.com/rocky/python-xdis/blob/master/xdis/magics.py#L134-L649
 * https://github.com/python/cpython/blob/dea7e3d5f8a63bc8883ca2874ab37c4587e85cda/Lib/importlib/_bootstrap_external.py#L226-L454
@@ -299,21 +299,21 @@ Commands used:
 * `backtrace`: show callframe stack
 * `continue`: continue execution.
 
-In this example, The *--style colorful* is just setting a color scheme for output. I have the source code available for inspection. Initially, we see disassembly for the bytecode we will be stepping through starting at offset 0.
+In this example, The *--style colorful* is just setting a color scheme for output. I have the source code available for inspection. Initially, we see disassembly for the bytecode we will be stepping through, starting at offset 0.
 
-When I run the *list* command, we see source code which is found using the embedded file name in the bytecode. Here, I have the source code around.
+When you run the *list* command, you see the source code, which is found using the embedded file name in the bytecode. Here, I have the source code around.
 
-Next, I issue a `step` command to get to the next line, line 4. At this point, we are going to load the constant integer value 5, so that we can store it in variable *x*. At this point I note that the evaluation stack is empty. And I can see that using `info stack`.
+Next, I issue a `step` command to get to the next line, line 4. At this point, we are going to load the constant integer value 5, so that we can store it in variable *x*. At this point, I note that the evaluation stack is empty. And I can see that using `info stack`.
 
-Currently, in Python up to Python 3.13, at statement and line boundaries the evaluation stack is empty. But when I step a bytecode instruction using `stepi`, now the evaluation stack has that 5 integer value that was loaded at offset 0. And now th evaluation stack shows that.
+Currently, in Python up to Python 3.13, at statement and line boundaries, the evaluation stack is empty. But when I step a bytecode instruction using `stepi`, now the evaluation stack has that 5 integer value that was loaded at offset 0. And now the evaluation stack shows that.
 
-But notice that variable *x* is still undefined. However when I `stepi` into the `STORE` instruction, *x* now has the value 5,
+But notice that variable *x* is still undefined. However, when I `stepi` into the `STORE` instruction, *x* now has the value 5,
 as expected.
 
 There is another stack in this version of Python called the
-"block stack".  It is currently empty which is seen using *info block*. When I step into the `try` block, we see that a new block entry has been
-created. And when I step another instruction, I get an `IndexError`exception raised and we see that there
-are lot of evaluation stack entries created. Although there is only one block, the block type has changed.
+"block stack".  It is currently empty, which is seen using *info block*. When I step into the `try` block, we see that a new block entry has been
+created. And when I step into another instruction, I get an `IndexError`exception raised and we see that there
+are a lot of evaluation stack entries created. Although there is only one block, the block type has changed.
 
 
 # 15.1 trepan3k: a debugger that can debug without source (and decompile)
@@ -358,7 +358,7 @@ The format `-F xasm` on `pydisasm` gives Bytecode assembly in text format.
 $ pydisasm -F xasm assembling/example1.cpython-310.pyc > assembling/example1.xasm
 ```
 
-You can then modify this and then create a Python bycode file using `pyx-xasm` from the `xasm` package.
+You can then modify this and create a Python bytecode file using `pyx-xasm` from the `xasm` package.
 
 We'll patch out a comparison test on getting the right "password", by
 changing some opcodes to NOP (no operation) instructions.
@@ -368,7 +368,7 @@ $ cat assembling/example1-xasm.diff
 $ patch -p1 assembling/example1-xasm.diff
 ```
 
-Now assembly the using `pyc-xasm`:
+Now assemble using `pyc-xasm`:
 
 ```shell-session
 $ pyc-xasm assembling/example1.xasm
