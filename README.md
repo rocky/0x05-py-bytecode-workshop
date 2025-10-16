@@ -9,6 +9,7 @@ here.
 **Table of Contents**
 
 - [Introduction](#introduction)
+- [Slide 1.1 Workshop on Python Bytecode](#slide-11-workshop-on-python-bytecode)
 - [Slide 3.2 Why Study Python Bytecode?](#slide-32-why-study-python-bytecode)
 - [6.1 Getting Set up for the workshop.](#61-getting-set-up-for-the-workshop)
 - [6.2 Python Installation via OS Package Install](#62-python-installation-via-os-package-install)
@@ -20,17 +21,16 @@ here.
   - [pyenv](#pyenv)
   - [pyenv-win](#pyenv-win)
 - [6.4 Software we will be using today](#64-software-we-will-be-using-today)
-  - [Versions of software](#versions-of-software)
 - [6.5 Optional programs](#65-optional-programs)
 - [7.1 Python Bytecode](#71-python-bytecode)
 - [7.3 Magic number identification locations](#73-magic-number-identification-locations)
 - [7.4 Python Identification Exercises](#74-python-identification-exercises)
 - [10.1 Python Interpreter vs. C Static Compile](#101-python-interpreter-vs-c-static-compile)
 - [13.2 Tracing Python Bytecode](#132-tracing-python-bytecode)
-- [14.3 trepan-xpy on Python Bytecode](#143-trepan-xpy-on-python-bytecode)
-- [15.1 trepan3k: a debugger that can debug without source](#151-trepan3k-a-debugger-that-can-debug-without-source)
-- [15.2 trepan3k: a debugger that can debug without source](#152-trepan3k-a-debugger-that-can-debug-without-source)
-- [16.1 Modifying Python Bytecode: pyc-xasm](#161-modifiying-python-bytecode-pyc-xasm)
+- [14.3 trepan-xpy on Python Bytecode (via source)](#143-trepan-xpy-on-python-bytecode-via-source)
+- [15.1 trepan3k: a debugger that can debug without source (and decompile)](#151-trepan3k-a-debugger-that-can-debug-without-source-and-decompile)
+- [15.2 trepan3k: a debugger that can debug without source, disassembly only](#152-trepan3k-a-debugger-that-can-debug-without-source-disassembly-only)
+- [16.1 Modifying Python Bytecode: pyc-xasm](#161-modifying-python-bytecode-pyc-xasm)
 
 <!-- markdown-toc end -->
 
@@ -161,15 +161,18 @@ Simple Python source text (file `five.py`)
 
 ```python
 def five():
-    return "5"
+    return 5
+print(five())
 ```
 
-Contents of Python 3.13 bytecode file using
-
+Compiling to bytecode inside Python using [`py_compile`](https://docs.python.org/3/library/py_compile.html) module
 ```
 python
 import py_compile; py_compile("five,py", "five.cpython-313.pyc", "exec")
 ```
+
+Contents of Python 3.13 bytecode:
+
 
 ```
 00000000: f30d 0d0a 0000 0000 cfed c168 2700 0000  ...........h'...
@@ -184,8 +187,8 @@ import py_compile; py_compile("five,py", "five.cpython-313.pyc", "exec")
 00000090: 6572 0700 0000 0100 0000 7305 0000 0080  er........s.....
 000000a0: 00d8 0b0c 7205 0000 004e 2902 7207 0000  ....r....N).r...
 000000b0: 00da 0570 7269 6e74 7204 0000 0072 0500  ...printr....r..
-000000c0: 0000 7206 0000 00da 083c 6d6f 6475 6c65  ..r......&lt;module
-000000d0: 3e72 0900 0000 0100 0000 7313 0000 00f0  &gt;r........s.....
+000000c0: 0000 7206 0000 00da 083c 6d6f 6475 6c65  ..r......<module
+000000d0: 3e72 0900 0000 0100 0000 7313 0000 00f0  >r........s.....
 000000e0: 0301 0101 f202 0101 0de1 0005 8164 8366  .............d.f
 000000f0: 850d 7205 0000 00                        s........
 ```
