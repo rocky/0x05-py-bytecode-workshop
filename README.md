@@ -31,6 +31,7 @@ here.
 - [15.1 trepan3k: a debugger that can debug without source (and decompile)](#151-trepan3k-a-debugger-that-can-debug-without-source-and-decompile)
 - [15.2 trepan3k: a debugger that can debug without source, disassembly only](#152-trepan3k-a-debugger-that-can-debug-without-source-disassembly-only)
 - [16.1 Modifying Python Bytecode: pyc-xasm](#161-modifying-python-bytecode-pyc-xasm)
+- [18.1 Thanks and Post Survey](#181-thanks-and-post-survey)
 
 <!-- markdown-toc end -->
 
@@ -147,6 +148,7 @@ $ pip show xdis uncompyle6 xasm trepan3k x-python trepanxpy
 
 # 6.5 Optional programs
 
+* `xxd` or some hex editor
 * [pycdc](https://github/zrax/pycdc/) (optional). This can be installed via snap.
 * [pylingual](https://github.com/syssec-utd/pylingual) This can be used from website http://pylingual.io .
 
@@ -276,6 +278,19 @@ define dso_local i32 @main(i32 noundef %0, ptr noundef %1) #0 {
 }
 ```
 
+# 12.2 Python decompilers
+
+* uncompyle6 decompile3, decompile-cfg
+* pylingual
+* pycdc
+* unpyc3, and variations
+
+# 12.3 Decompilation Exercises
+
+Decompile `example1.pyc` to `example7.pyc` found in the directory `12-decompilation-examples. Or as many as you can.
+
+For those that you can't decompile, classify what Python bytecode we have, and try to disassemble it.
+
 # 13.2 Tracing Python Bytecode
 
 ```shell-session
@@ -385,3 +400,13 @@ $ x-python 16-assembling/example1.pyc
 ```
 
 ![trepan-3k demo with disassembly only](16-assembling/assemble.gif)
+
+# 18.1 Thanks and Post Survey
+
+Please fill out this survey to help me improve this and decide if I should try to do this again.
+
+Thanks to:
+
+* Organizers
+* David Handy
+* Stuart Frankel
