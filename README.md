@@ -39,7 +39,7 @@ here.
 
 Please join slack channel: #0x05-py-bytecode-workshop.
 
-Make sure you've filled out the [BSidesNYC 2025 Surve](https://forms.gle/wLXvKyn6VmyCLGX98).
+Make sure you've filled out the [BSidesNYC 2025 Survey](https://forms.gle/wLXvKyn6VmyCLGX98).
 
 
 # Slide 3.2 Why Study Python Bytecode?
@@ -403,10 +403,10 @@ $ x-python 16-assembling/example1.pyc
 
 # 18.1 Thanks and Post Survey
 
-Please fill out this survey to help me improve this and decide if I should try to do this again.
+Please fill out [this survey](https://forms.gle/VQMiSx87z36oyR7A9) to help me improve this and decide if I should try to do this again.
 
 Thanks to:
 
-* Organizers
+* Organizers (Brad Anton, Brian Smith-Sweeney)
 * David Handy
 * Stuart Frankel
