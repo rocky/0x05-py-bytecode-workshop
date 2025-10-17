@@ -101,7 +101,7 @@ $ brew install python3@3.13
 $ choco install python --version=3.12 --params '"/InstallDir:C:\Python313"'
 ```
 
-# 6.3 Python Installation via Virtual Environment
+# 6.4 Python Installation via Virtual Environment
 
 ## virtualenv
 
@@ -127,15 +127,15 @@ $ # Follow instructions at: https://github.com/pyenv/pyenv#b-set-up-your-shell-e
 $ Invoke-WebRequest -UseBasicParsing -Uri "https://raw.githubusercontent.com/pyenv-win/pyenv-win/master/pyenv-win/install-pyenv-win.ps1" -OutFile "./install-pyenv-win.ps1"; &"./install-pyenv-win.ps1"
 ```
 
-# 6.4 Software we will be using today
+# 6.5 Software we will be using today
 
 
-* [xdis](https://pypi.org/project/xdis/): 6.1.7
+* [xdis](https://pypi.org/project/xdis/): 6.1.8
 * [uncompyle6](https://pypi.org/project/uncompyle6/): 3.9.4
 * [x-python](https://pypi.org/project/x-python/): 3.9.4
 * [trepanxpy](https://pypi.org/project/trepanxpy/) 1.1.2
-* [trepan3k](https://pypi.org/project/trepan3k/)
-* [xasm](https://pypi.org/project/xasm/) 1.2.1
+* [trepan3k](https://pypi.org/project/trepan3k/) 1.5.1
+* [xasm](https://pypi.org/project/xasm/) 1.2.2
 * [python-control-flow](https://pypi.org/project/python-control-flow) 1.0.0.alpha0
 
 To install these:
