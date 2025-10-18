@@ -37,7 +37,7 @@ here.
 
 # Slide 1.1 Workshop on Python Bytecode
 
-Please join slack channel: #0x05-py-bytecode-workshop.
+Please join Slack channel: #0x05-py-bytecode-workshop.
 
 Make sure you've filled out the [BSidesNYC 2025 Survey](https://forms.gle/wLXvKyn6VmyCLGX98).
 
@@ -408,5 +408,7 @@ Please fill out [this survey](https://forms.gle/VQMiSx87z36oyR7A9) to help me im
 Thanks to:
 
 * Organizers (Brad Anton, Brian Smith-Sweeney)
+* Workshop Volunteer Lead extrordinaire August Huber
+* Workshop Volunteers Roman, Prathamesh Walunj, Andrew Chang
 * David Handy
 * Stuart Frankel
