@@ -170,7 +170,7 @@ print(five())
 Compiling to bytecode inside Python using [`py_compile`](https://docs.python.org/3/library/py_compile.html) module
 ```
 python
-import py_compile; py_compile("five,py", "five.cpython-313.pyc", "exec")
+import py_compile; py_compile.compile("five,py", "five.cpython-313.pyc", "exec")
 ```
 
 Contents of Python 3.13 bytecode:
